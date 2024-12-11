@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Scan Login</title>
+    <link href="../css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-content" id="loginScreen">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="../images/Logo.png" alt="Pet Scan Logo">
+            Pet Scan
+        </div>
+
+        <!-- Input Fields -->
+        <div class="input-container">
+            <input type="text" id="username" placeholder="Username">
+           
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" placeholder="Password">
+            
+        </div>
+
+        <!-- Buttons -->
+        <button class="login-button" id="loginButton">Log In</button>
+    </div>
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo">
+            <img src="../images/Logo.png" alt="Pet Scan Logo">
+            Pet Scan
+        </div>
+        <p>Loading Profile</p>
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const loginScreen = document.getElementById('loginScreen');
+        const loadingScreen = document.getElementById('loadingScreen');
+
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username.trim() !== '' && password.trim() !== '') {
+                loginScreen.style.display = 'none';
+                loadingScreen.style.display = 'flex';
+
+                setTimeout(() => {
+                    window.location.href = '../html/maladiet.html';
+                }, 2000);
+            } else {
+                alert('Please enter username and password!');
+            }
+        });
+    </script>
+</body>
+</html>

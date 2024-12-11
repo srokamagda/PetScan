@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="../css/settings.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Settings Section -->
+        <div id="mainSettings" class="settings-card">
+            <div class="section-header">Settings</div>
+            <div class="section-header">General</div>
+            <div class="settings-item" onclick="showNotificationSection()">
+                <span class="item-text">Notifications</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showPermissionsSection()">
+                <span class="item-text">Permissions</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showAboutSection()">
+                <span class="item-text">About</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="section-header">Login</div>
+            <div class="settings-item red" onclick="openModal('delete')">
+                Delete Account Permanently
+            </div>
+            <div class="settings-item" onclick="openModal('logoutAll')">
+                Log Out of All Devices
+            </div>
+            <div class="settings-item" onclick="openModal('logout')">
+                Log Out
+            </div>
+        </div>
+
+        <!-- Notification Section -->
+        <div id="notificationSection" class="settings-card hidden">
+            <div class="back-btn" onclick="goBack()">
+                <span>← Back</span>
+            </div>
+            <div class="section-header">Notifications</div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Push All</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Meals & Medications</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Fitness & Routine</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">GPS Location</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Calendar Events</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="aboutSection" class="settings-card hidden">
+            <div class="back-btn" onclick="goBack()">
+                <span>← Back</span>
+            </div>
+            <div class="section-header">About</div>
+            <div class="settings-item" onclick="showAboutContent('aboutAccount')">
+                <span class="item-text">About Account</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showAboutContent('privacyPolicy')">
+                <span class="item-text">Privacy Policy</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showAboutContent('termsOfUse')">
+                <span class="item-text">Terms of Use</span>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showAboutContent('appUpdates')">
+                <span class="item-text">App Updates</span>
+                <span class="icon">➔</span>
+            </div>
+        </div>
+
+        <!-- About Content Section -->
+        <div id="aboutContentSection" class="settings-card hidden">
+            <div class="back-btn" onclick="goBackToAbout()">
+                <span>← Back</span>
+            </div>
+            <div id="aboutContentContainer" class="about-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Permissions Section -->
+        <div id="permissionsSection" class="settings-card hidden">
+            <div class="back-btn" onclick="goBack()">
+                <span>← Back</span>
+            </div>
+            <div class="section-header">Permissions</div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Share Location</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Camera</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Device Gallery</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+            <div class="settings-item toggle-switch">
+                <span class="item-text">Notifications</span>
+                <div class="toggle" onclick="toggleSwitch(this)"></div>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <h2 id="modalMessage"></h2>
+                <div class="modal-buttons">
+                    <button class="confirm" id="confirmBtn">Yes</button>
+                    <button class="cancel" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Functions for Notification, About, and Permissions sections
+        function showNotificationSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('notificationSection').classList.remove('hidden');
+        }
+
+        function showAboutSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('aboutSection').classList.remove('hidden');
+        }
+
+        function showPermissionsSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('permissionsSection').classList.remove('hidden');
+        }
+
+        // Back navigation functions
+        function goBack() {
+            document.getElementById('notificationSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.add('hidden');
+            document.getElementById('permissionsSection').classList.add('hidden');
+            document.getElementById('aboutContentSection').classList.add('hidden');
+            document.getElementById('mainSettings').classList.remove('hidden');
+        }
+
+        function goBackToAbout() {
+            document.getElementById('aboutContentSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.remove('hidden');
+        }
+
+        // Toggle switch function
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+        }
+
+        // About content population
+        function showAboutContent(contentType) {
+            const content = {
+                aboutAccount: '<h2>About Account</h2><p>Email: petlover@atu.ie</br> Password: petlover1234</br>Account Created: January 2023</p>',
+                privacyPolicy: '<h2>Privacy Policy</h2><p>At Pet Scan, we are committed to safeguarding your personal data and ensuring transparency in how we handle your information. Pet Scan collects data related to your diet, fitness activities, health metrics, and location to provide a personalized experience and optimize your well-being. We use this information to generate insights, offer recommendations, and track your progress over time. All data is securely stored and will never be shared with third parties without your consent. You have full control over your privacy settings, and you can modify or delete your data at any time through the app’s settings. Our mission is to support your health journey while respecting your privacy.</p>',
+                termsOfUse: '<h2>Terms of Use</h2><p>Pet Scan Terms of Use Welcome to Pet Scan! By using our app, you agree to the following terms and conditions. Please read them carefully. 1. Acceptance of Terms By downloading, installing, or using Pet Scan, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use the app. 2. User Account To access certain features of Pet Scan, you may need to create an account. You agree to provide accurate and complete information and to update your account as needed. You are responsible for keeping your login credentials confidential and for all activities under your account. 3. Use of the App Pet Scan is designed to track your diet, fitness, health, and location data to provide personalized insights and recommendations. The app is for personal, non-commercial use only. You agree to use Pet Scan in accordance with all applicable laws and regulations.</p>',
+                appUpdates: '<h2>App Updates</h2><p><strong>No updates currently available.</strong></p>'
+            };
+            document.getElementById('aboutContentContainer').innerHTML = content[contentType];
+            document.getElementById('aboutSection').classList.add('hidden');
+            document.getElementById('aboutContentSection').classList.remove('hidden');
+        }
+
+        // Modal functions
+function openModal(action) {
+    const messages = {
+        delete: 'Are you sure you want to permanently delete your account?',
+        logoutAll: 'Are you sure you want to log out of all devices?',
+        logout: 'Are you sure you want to log out?'
+    };
+    document.getElementById('modalMessage').textContent = messages[action];
+    document.getElementById('confirmationModal').style.display = 'flex';
+
+    // Confirm button handler
+    document.getElementById('confirmBtn').onclick = function() {
+        // Redirect to index.html after confirmation
+        window.location.href = '../html/index.html';
+        closeModal();
+    };
+}
+
+function closeModal() {
+    document.getElementById('confirmationModal').style.display = 'none';
+}
+
+    </script>
+</body>
+</html>
