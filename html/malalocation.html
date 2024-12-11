@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mala Location</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="../css/location.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <img src="../images/IMG_5251.JPG" alt="Profile Picture">
+            <h1>Mala</h1>
+        </div>
+
+        <!-- Map Section -->
+        <div id="map" class="map-container"></div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="maladiet.html"><i class="fas fa-utensils"></i><span>Food</span></a>
+            <a href="malaexcercise.html"><i class="fas fa-walking"></i><span>Exercise</span></a>
+            <a href="malahealth.html"><i class="fas fa-heartbeat"></i><span>Health</span></a>
+            <a href="malalocation.html"><i class="fas fa-globe"></i><span>World</span></a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([53.2707, -9.0568], 14); 
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Create a custom icon
+        const customIcon = L.divIcon({
+    className: 'custom-icon',
+    html: `<img src='../images/IMG_5251.jpg' alt='Marker' class='circle-marker' style='width:50px;height:50px;'>`, 
+    iconSize: [50, 50], 
+    iconAnchor: [25, 50], 
+    popupAnchor: [0, -50] 
+});
+
+// Add a marker with the custom divIcon
+const marker = L.marker([53.2707, -9.0568], { icon: customIcon }).addTo(map);
+marker.bindPopup("Mala's Location").openPopup();
+
+    </script>
+</body>
+</html>
