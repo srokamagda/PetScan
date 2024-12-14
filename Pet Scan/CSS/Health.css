@@ -1,0 +1,366 @@
+.health-button {
+    display: block;
+    background-color: #ff6753;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+
+.health-areas {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+    padding-top: 10px;
+    overflow-y: hidden;
+}
+
+.health_items {
+    height: 130px;
+    width: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.health_items h5{
+    text-align:center;
+    color: white; 
+    font-size: 20px;
+}
+
+
+.health_items i{
+    font-size: 2.5em !important; 
+    color: white;
+}
+
+
+
+
+
+
+/* Medications Subpage */
+
+.health-subpage-box {
+    height: 500px;
+    width: 80%;
+    margin-top: 70px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.main-health-content i {
+    font-size: 2.5em !important; 
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.health-subpage-title i {
+    font-size: 1.5em !important; 
+    position: absolute;
+    top: -5px;
+    left: -50px;
+}
+
+
+
+.health-subpage-title {
+    position: absolute;
+    top: 40px;
+    left: 150px;
+    font-size: 20px;
+    color: white;
+}
+
+.health-subpage-box h2 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.health-plan {
+    display: flex;
+    justify-content: center;
+}
+
+.main-health-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.add-item {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 1;
+    background-color: white;
+}
+
+.add-item button {
+    background-color: #000000;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 50px;
+    width: 120px;
+    color: white;
+    font-weight:500;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* Health  Medication Popup styling */
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.main-content.subpage.medications {
+    background: linear-gradient(to bottom, #71DBD6, #439D99);
+
+}
+
+.modal-content {
+    background-color: white;
+    margin: 25% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%;
+
+    border: 1px solid white;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modal-header {
+    margin-bottom: 30px;
+}
+
+.modal-footer {
+    margin-top: 40px;
+}
+
+
+#closeMedicationModal, #closeVaccinationModal, #closeAllergyModal{
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.modal-body{
+    margin-bottom: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add medication button styling */
+ #addMedication, #cancelMedication, #addVaccination, #cancelVaccination, #addAllergy, #cancelAllergy {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cancelMedication, #cancelVaccination, #cancelAllergy {
+    background-color: #dc3545;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Add some space between form groups */
+}
+
+.form-group label {
+    display: block; /* Make the label take up the full width */
+    margin-bottom: 5px; /* Add some space below the label */
+    font-weight: bold; /* Optional: Make the label text bold */
+}
+
+.form-group input, select {
+    height: 40px;
+    width: 100%; /* Make the input box take up the full width */
+    padding: 8px; /* Add some padding inside the input box */
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
+    border: 1px solid #ccc; /* Optional: Add a border to the input */
+    border-radius: 4px; /* Optional: Round the corners of the input box */
+}
+
+.form-group select {
+    width: 50%;
+}
+
+.vaccinationList, .allergyList, .medicationList {
+    width: 100%;
+    overflow: auto;
+}
+
+.medicationList {
+    height: 320px;
+}
+
+.allergyList {
+    height: 330px;
+}
+
+.vaccinationList {
+    height: 350px;
+    padding-left: 20px;
+    margin-top: 30px;
+}
+.vaccinationList.vet {
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+.vaccinationList div {
+    margin-bottom: 20px;
+}
+
+
+/* Vaccination Popup Styling */
+
+#vaccinationModal .model-content {
+    height: 90%;
+}
+
+.main-content.subpage.vaccinations {
+    background: linear-gradient(to bottom, #7571DB, #4A4790);
+}
+
+.main-content.subpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to bottom, #7571DB, #4A4790);
+}
+
+
+.main-content.subpage i {
+    font-size: 2.5em !important; 
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+
+
+
+.main-content.subpage .health-subpage-title i {
+    font-size: 1.5em !important; 
+    position: absolute;
+    top: -5px;
+    left: -50px;
+}
+
+/* Allergy Subpage Styling */
+
+
+.main-content.subpage.allergies {
+    background: linear-gradient(to bottom, #FFBC3F, #B47806);
+}
+
+.modal-content.allergy {
+    height: 50% !important;
+}
+
+/* Conditions Subpage Styling */
+
+
+.main-content.subpage.conditions {
+    background: linear-gradient(to bottom, #FF3F3F, #8E0E0E);
+}
+
+.modal-content.conditions {
+    height: 60% !important;
+}
+
+
+/* Conditions Subpage Styling */
+
+
+.main-content.subpage.vet {
+    background: linear-gradient(to bottom, #045B04, #000C00);
+}
+
+.modal-content.vet {
+    height: 60% !important;
+}
+
+
+/* Appointments Subpage Styling */
+
+
+.main-content.subpage.appointments {
+    background: linear-gradient(to bottom, #FF86EB, #9B2688);
+}
+
+.modal-content.appointments {
+    height: 90% !important;
+    margin-top: 25px;
+}
+

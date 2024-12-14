@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medications</title>
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <link rel="stylesheet" href="../CSS/Navigation.css">
+    <link rel="stylesheet" href="../CSS/Health.css">
+
+   
+</head>
+<body class = "appointments">
+    <!-- Main Content (Container) -->
+    <div class="main-content subpage appointments">
+        <i class="fa-solid fa-arrow-left" id = "returnBack"></i>
+        
+            
+        <!-- Diet Button -->
+        <div class="health-subpage-title"> 
+            <i class="fa-solid fa-calendar-days"></i>
+            <h3>Appointments</h3>
+        </div>
+
+        
+
+        <!-- Meal Plan Section -->
+        <div class="health-plan">
+            
+          
+            <div class="health-subpage-box">
+
+                <b><h2 class = "title"> Vet Appointments</h2></b>
+
+                <div class="vaccinationList" id = "vaccinationList"><br><br></div>
+
+                <div class="add-item">
+                    <button id="openVaccinationPopup" style = "width: 150px;">Add Appointment + </button> <!-- Medication Popup Button -->
+                </div>
+            </div>
+
+
+           
+               
+    
+        
+
+        <!-- Modal Structure -->
+        <div id="vaccinationModal" class="modal">
+            <div class="modal-content appointments" style = "height: 80%;">
+                <div class="modal-header">
+                    <h2>Add Appointment</h2>
+                    <span class="close" id="closeVaccinationModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                    <label for="appointmentTitle">Title:</label>
+                    <input type="text" id="appointmentTitle" placeholder="Enter title">
+                    </div>
+
+                    <div class="form-group"> 
+                        <label for="appointmentDate">Select Date:</label> 
+                        <input type="date" id="appointmentDate" class="date-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentTime">Time:</label>
+                        <select id="appointmentTime" name="appointmentTime">
+                            <option value="07:00">07:00 AM</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentVet">Vet Clinic:</label>
+                        <input type="text" id="appointmentVet" placeholder="Enter Vet Clinic">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentAddress">Address:</label>
+                        <input type="text" id="appointmentAddress" placeholder="Enter Vet Address">
+                    </div>
+
+                  
+                    
+                    
+
+                    </div>
+
+                <div class="modal-footer">
+                    <button id="cancelVaccination">Cancel</button>
+                    <button id="addVaccination">Add Appointment</button>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+
+            
+        </div>
+
+    
+    </div>
+
+   
+
+    <!-- JavaScript -->
+    <script src = "../JS/Health_Appointments.js">
+       
+    </script>
+</body>
+</html>

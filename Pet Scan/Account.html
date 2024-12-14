@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/Navigation.css">
+    <link href="CSS/Account.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main-content">
+        <div id="mainSettings" class="settings-card">
+            
+        <i class="fa-solid fa-arrow-left" id = "returnBack"></i>
+        <h2 class = "title" style = "color: white">My Account</h2>
+        <!-- Main Settings Section -->
+        <div class="flex">
+            
+        <div class="generalSettings">
+            <div class="section-header">Personal Details</div>
+            
+            <div class="settings-item" onclick="showEmailSection()">
+                <span class="item-text">Email</span>
+                <p class = "email" id = "email"></p>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item" onclick="showPhoneSection()">
+                <span class="item-text">Phone Number</span>
+                <p class = "phone" id = "phone"></p>
+                <span class="icon">➔</span>
+            </div>
+            <div class="settings-item">
+                <span class="item-text">Birthday</span>
+                <p class = "birthday" id = "birthday"></p>
+            
+            </div>
+
+            <div class="settings-item" onclick="showRegionSection()">
+                <span class="item-text">Country or Region</span>
+                <p class = "region" id="region"></p>
+                <span class="icon">➔</span>
+            </div>
+        </div>
+
+        
+        <div class="logout">
+            <div class="section-header">Security and Login</div>
+            <div class="settings-item" >
+                <span class="item-text">Username</span>
+                <p class = "username" id = "username"></p>
+            </div>
+
+            <div class="settings-item"  onclick="showPasswordSection()">
+                <span class="item-text">Password</span>
+                <p class = "password" id = "password"></p>
+                <span class="icon">➔</span>
+            </div>
+
+            <div class="settings-item red" onclick="openModal('logout')">
+                Log Out
+            </div>
+        </div>
+        </div>
+    </div>
+   
+
+        <!-- Notification Section -->
+        <div id="notificationSection" class="settings-card hidden">
+            <div class="outter-main">
+            <div class="main" style = "position:relative;">
+            <div class="back-btn" onclick="goBack()">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Back</span>
+            </div><br>
+            <div class="section-header" style = "margin-bottom:5px;">Email</div>
+            <div class="settings-item toggle-switch" id = "editInfo" style = "margin-top:0; padding-top:0px;">
+                <p class = "notificationEmail" id = "notificationEmail" style = "font-size: 20px;"></p>
+                <button class = "edit" id = "editEmail"> Edit Email </button>
+                
+            </div>
+            <br><br><br><br><br><br>
+        </div>
+        </div>
+         
+            <div id="emailPopup" class = "modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Edit Email</h2>
+                        <span class="close" id="closeEmailModal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-group">
+                        <label for="newEmail">Enter New Email</label>
+                        <input type="email" id="newEmail" placeholder="Enter Email" style = "margin-top: 10px;" >
+                        </div>
+
+        
+                      
+        
+                    <div class="modal-footer">
+                        <button class="cancel-btn" id="cancelGoal">Cancel</button>
+                        <button class="add-btn" id="saveEmail" style = "width: 150px;">Save Email</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <!-- Region Section -->
+        <div id="regionSection" class="settings-card hidden">
+            <div class="outter-main">
+                <div class="main" style = "position:relative;">
+                <div class="back-btn" onclick="goBack()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>Back</span>
+                </div><br>
+                <div class="section-header" style = "margin-bottom:5px;">Country or Region</div>
+                <div class="settings-item toggle-switch" id = "editInfo" style = "margin-top:0; padding-top:0px;">
+                    <p class = "notificationRegion" id = "notificationRegion" style = "font-size: 20px;"></p>
+                    <button class = "edit" id = "editRegion"> Edit Region </button>
+                    
+                </div>
+                <br><br><br><br><br><br>
+            </div>
+            </div>
+               
+                <div id="regionPopup" class = "modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Edit Region</h2>
+                            <span class="close" id="closeRegionModal">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <div class="form-group">
+                            <label for="regions">Select New Region</label>
+                            <select id="regions">
+                                <option value="Ireland">Ireland</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Canada">Canada</option>
+                                <option value="United States">United States</option>
+                            </select>
+                            </div>
+    
+            
+                          
+            
+                        <div class="modal-footer">
+                            <button class="cancel-btn" id="cancelRegion">Cancel</button>
+                            <button class="add-btn" id="saveRegion" style = "width: 150px;">Save Region</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <!-- About Content Section -->
+        <div id="aboutContentSection" class="settings-card hidden">
+            <div class="back-btn" onclick="goBackToAbout()">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Back</span>
+            </div>
+            <div id="aboutContentContainer" class="about-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Permissions Section -->
+        <div id="permissionsSection" class="settings-card hidden">
+            <div class="outter-main">
+                <div class="main" style = "position:relative;">
+                <div class="back-btn" onclick="goBack()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>Back</span>
+                </div><br>
+                <div class="section-header" style = "margin-bottom:5px;">Phone Number</div>
+                <div class="settings-item toggle-switch" id = "editInfo" style = "margin-top:0; padding-top:0px;">
+                    <p class = "notificationPhone" id = "notificationPhone" style = "font-size: 20px;"></p>
+                    <button class = "edit" id = "editMobile"> Edit Mobile </button>
+                    
+                </div>
+                <br><br><br><br><br><br>
+            </div>
+            
+            </div>
+                
+                <div id="mobilePopup" class = "modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Edit Mobile</h2>
+                            <span class="close" id="closeMobileModal">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <div class="form-group">
+                            <label for="newMobile">Enter New Mobile</label>
+                            <input type="number" id="newMobile" placeholder="Enter New Mobile" style = "margin-top: 10px;" >
+                            </div>
+    
+            
+                          
+            
+                        <div class="modal-footer">
+                            <button class="cancel-btn" id="cancelMobile">Cancel</button>
+                            <button class="add-btn" id="saveMobile" style = "width: 150px;">Save Mobile</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div id="passwordSection" class="settings-card hidden">
+            <div class="outter-main">
+            <div class="main" style = "position:relative;">
+            <div class="back-btn" onclick="goBack()">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Back</span>
+            </div><br>
+            <div class="section-header" style = "margin-bottom:5px;"><h3>Change Password</h3></div><br>
+            <div class = "passwordMessage" id = "successPasswordMessage" style = "color: rgb(16, 105, 0); font-weight: 600; margin-bottom: 10px;"></div>
+            <div class = "passwordMessage" id = "passwordMessage" style = "color: red; font-weight: 600; margin-bottom: 10px;"></div>
+            <div class="settings-item toggle-switch" id = "editInfo" style = "margin-top:0; padding-top:0px;">
+                
+                <div class="form-group">
+                    <label for="currentPassword">Enter Current Password</label>
+                    <input type="text" id="currentPassword" placeholder="Enter current password" style = "margin-top: 10px;" >
+                </div>
+
+                <div class="form-group">
+                    <label for="newPassword">Enter New Password</label>
+                    <input type="text" id="newPassword" placeholder="Enter new password" style = "margin-top: 10px;" >
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="text" id="confirmPassword" placeholder="Confirm new password" style = "margin-top: 10px;" >
+                </div>
+
+
+                
+                <button class = "edit" id = "changePassword" style = "width: 200px;"> Change Password </button>
+                
+            </div>
+            <br><br><br>
+        </div>
+        </div>
+         
+            <div id="emailPopup" class = "modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Edit Email</h2>
+                        <span class="close" id="closeEmailModal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-group">
+                        <label for="newEmail">Enter New Email</label>
+                        <input type="email" id="newEmail" placeholder="Enter Email" style = "margin-top: 10px;" >
+                        </div>
+
+        
+                      
+        
+                    <div class="modal-footer">
+                        <button class="cancel-btn" id="cancelGoal">Cancel</button>
+                        <button class="add-btn" id="saveEmail" style = "width: 150px;">Save Email</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <h2 id="modalMessage"></h2>
+                <div class="modal-buttons">
+                    <button class="confirm" id="confirmBtn">Yes</button>
+                    <button class="cancel" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src = "JS/Account.js"></script>
+
+
+    <script>
+        document.getElementById('returnBack').addEventListener('click', function() { 
+            window.history.back(); // This will navigate to the previous page in the browsing history 
+        });
+
+        
+        // Functions for Notification, About, and Permissions sections
+        function showEmailSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('notificationSection').classList.remove('hidden');
+        }
+
+
+        function showPhoneSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('permissionsSection').classList.remove('hidden');
+        }
+
+        function showRegionSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('regionSection').classList.remove('hidden');
+        }
+
+        function showPasswordSection() {
+            document.getElementById('mainSettings').classList.add('hidden');
+            document.getElementById('passwordSection').classList.remove('hidden');
+
+            document.getElementById('passwordMessage').innerHTML = "";
+            document.getElementById('currentPassword').innerHTML = "";
+            document.getElementById('newPassword').innerHTML = "";
+            document.getElementById('confirmPassword').innerHTML = "";
+            document.getElementById('successPasswordMessage').innerHTML = "";
+
+
+
+        }
+
+        // Back navigation functions
+        function goBack() {
+            document.getElementById('notificationSection').classList.add('hidden');
+            document.getElementById('regionSection').classList.add('hidden');
+            document.getElementById('permissionsSection').classList.add('hidden');
+            document.getElementById('mainSettings').classList.remove('hidden');
+            document.getElementById('passwordSection').classList.add('hidden');
+        }
+
+        function goBackToAbout() {
+            document.getElementById('aboutContentSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.remove('hidden');
+        }
+
+    
+
+        // Modal functions
+function openModal(action) {
+    const messages = {
+        delete: 'Are you sure you want to permanently delete your account?',
+        logoutAll: 'Are you sure you want to log out of all devices?',
+        logout: 'Are you sure you want to log out?'
+    };
+    document.getElementById('modalMessage').textContent = messages[action];
+    document.getElementById('confirmationModal').style.display = 'flex';
+
+    // Confirm button handler
+    document.getElementById('confirmBtn').onclick = function() {
+        // Redirect to index.html after confirmation
+        window.location.href = 'index.html';
+        closeModal();
+    };
+}
+
+function closeModal() {
+    document.getElementById('confirmationModal').style.display = 'none';
+}
+
+    </script>
+
+
+</body>
+</html>

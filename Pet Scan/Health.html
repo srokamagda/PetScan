@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan App</title>
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/Health.css">
+    <link rel="stylesheet" href="CSS/Navigation.css">
+
+   
+</head>
+<body >
+    <!-- Main Content (Container) -->
+    <div class="main-content">
+        
+            <div class="sidebar-content">
+                <!-- Header Section -->
+                <div class="header">
+                    <img src="" id = "pet-pic" alt="Profile Picture" onclick="window.location.href='Profile.html'">
+                <h1 id = "pet-name" style="text-align: left; margin-left: 60px;"></h1>
+                    <div class="menu-btn" id="menu-btn">&#9776;</div>
+                    <div class="overlay" id="overlay">
+                        <div class="logo_div">
+                            <a href="Home.html"><img src="Images/Logo.png" href="Home.html" class = "logo" alt="Company Logo"></a>
+                        </div>
+
+                        <span class = "sidebar_divider"></span>
+                    <div>
+                        <a href="Home.html"><i class="fa-solid fa-house"></i></a>
+                        <a href="Account.html"><i class="fa-solid fa-user"></i></a>
+                        <a href="Settings.html"><i class="fa-solid fa-gear"></i></a>
+                        
+                        
+                        <nav class="menu">
+                           
+                            
+                            <ul>
+                                <li><a href="Home.html">Home</a></li>
+                                <li><a href="Account.html"> My Account</a></li>
+                                <li><a href="Settings.html">Settings</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    </div>
+                </div>
+        
+                <!-- Rest of your content -->
+                <div class="health-button"  style = "border-top: 3px solid white;"> <h1>Health</h1></div>
+            </div>
+   
+     
+
+        <!-- Diet Button -->
+        
+
+        
+
+        <!-- Meal Plan Section -->
+        <div class="health-plan">
+            
+
+            <!-- Placeholder for dynamically added meal cards -->
+            <div id="mealList"></div>
+
+            <!-- Add Buttons -->
+            <div class="health-areas">
+                <div class="health_items" style = "background-color: #71DBD6;" onclick="window.location.href='Health/Medications.html'">
+                    <i class="fa-solid fa-pills"></i>
+                    <h5>Medications</h5>
+                </div>
+
+                <div class="health_items" style = "background-color: #7571DB;" onclick="window.location.href='Health/Vaccinations.html'">
+                   <i class="fa-solid fa-syringe"></i>
+                    <h5>Vaccinations</h5>
+                </div>
+
+                <div class="health_items" style = "background-color: #FFBC3F;" onclick="window.location.href='Health/Allergies.html'">
+                    <i class="fa-solid fa-hand-dots"></i>
+                    <h5>Allergies</h5>
+                </div>
+
+                <div class="health_items" style = "background-color: #FF3F3F;" onclick="window.location.href='Health/Conditions.html'">
+                    <i class="fa-solid fa-stethoscope"></i></i></a>
+                    <h5>Conditions</h5>
+                </div>
+
+                <div class="health_items" style = "background-color: #045B04;" onclick="window.location.href='Health/ContactVet.html'">
+                    <i class="fa-solid fa-paw"></i>
+                    <h5>Contact Vet</h5>
+                </div>
+
+                <div class="health_items" style = "background-color: #FF86EB;" onclick="window.location.href='Health/Appointments.html'">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <h5>Appointments</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="Diet.html"><i class="fas fa-utensils"></i><span>Food</span></a>
+            <a href="Fitness.html"><i class="fas fa-walking"></i><span>Exercise</span></a>
+            <a href="Health.html"><i class="fas fa-heartbeat"></i><span>Health</span></a>
+            <a href="World.html"><i class="fas fa-globe"></i><span>World</span></a>
+        </div>
+    </div>
+
+   
+
+    <script src = "JS/Navigation.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { 
+            const petId = getQueryParam('id'); 
+            if (petId) { 
+                localStorage.setItem('currentPetId', petId); 
+            } 
+        }); 
+        
+        function getQueryParam(name) { 
+            const urlParams = new URLSearchParams(window.location.search); 
+            return urlParams.get(name); 
+        }
+
+     
+            document.addEventListener('DOMContentLoaded', function() { 
+                var petId = localStorage.getItem('currentPetId'); // Retrieve pets from local storage 
+                var pets = JSON.parse(localStorage.getItem('pets')) || []; // Find the specific pet 
+                var pet = pets.find(p => p.id == petId); 
+
+                if (pet) { // Add the medication to the pet's medications array 
+                const profileImage = document.getElementById('pet-pic'); 
+                profileImage.src = pet.image;
+                var petName = document.getElementById("pet-name");
+                petName.textContent = pet.name;
+                
+         } else { 
+            console.error('Pet not found for id:', petId); 
+        }});
+    </script>
+</body>
+</html>

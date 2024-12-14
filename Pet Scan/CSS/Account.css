@@ -1,0 +1,358 @@
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main-content {
+    width: 100%;
+    max-width: 400px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 50px;
+    background: linear-gradient(to bottom, #003C14, #00A236);
+}
+
+.flex {
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    align-items: center;
+}
+
+.generalSettings, .logout {
+    background: #1a1a1a; /* Dark gray background */
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    background-color: white;
+    color: black;
+    position: relative;
+    width: 80%;
+}
+
+#permissionsSection, #regionSection, #aboutContentSection, #aboutSection, #notificationSection {
+        margin-top: 0px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+}
+
+.main {
+    margin-top: 60px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 80%;
+    width: 80%;
+    position: relative;
+    margin-top: 50%;
+}
+
+.outter-main {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.settings-card {
+    margin-top: 60px;
+    width: 100%;
+}
+
+.section-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#returnBack {
+    color:white; 
+    font-size: 3em;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.title {
+    position: absolute;
+    top: 35px;
+    left: 100px;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    margin: 10px 0;
+    background: #ffffff; /* Dark gray background */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+}
+
+
+.settings-item .item-text {
+    font-size: 16px;
+}
+
+.settings-item .icon {
+    font-size: 16px;
+}
+
+.item-text {
+    font-weight: 600;
+}
+
+.email, .phone, .birthday, .region, .username, .password {
+    position: absolute;
+    bottom: -5px;
+    font-size: .8em;
+}
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: static;
+}
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+#passwordSection {
+    margin-top: 20px;
+}
+
+#passwordSection .toggle-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    position: static;
+    padding-left:0;
+}
+
+
+#passwordSection .main {
+    margin-top: 20px;
+}
+
+#passwordSection .edit {
+    left: 15%;
+}
+
+
+
+
+.edit {
+    position: absolute;
+    bottom: 40px;
+    left: 90px;
+    width: 120px;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #506fa5;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle.active {
+    background: #f44336; /* Bright red for active state */
+}
+
+.toggle.active::before {
+    transform: translateX(20px);
+}
+
+.back-btn {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-btn span {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Custom Styles for Login Section */
+.login-section .settings-item {
+    background-color: #ffcccc; /* Light red background */
+    color: #cc0000; /* Red text */
+}
+
+.login-section .settings-item:hover {
+    background-color: #ffb3b3; /* Darker red hover */
+}
+
+.login-section .settings-item:last-child {
+    background-color: #f44336; /* Bright red */
+    color: white;
+    text-align: center;
+}
+
+.login-section .settings-item:last-child:hover {
+    background-color: #d32f2f; /* Darker red hover */
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: white;
+    margin: 40% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 50%;
+
+    border: 1px solid white;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.modal-header {
+    margin-bottom: 30px;
+}
+
+.modal-footer {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 30px
+}
+
+#modal-message {
+    text-align: center;
+}
+
+#confirmationModal .modal-content {
+    height: 25%;
+    margin: auto;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#setGoal, #cancelGoal, #saveEmail, #saveMobile, #cancelMobile, #saveRegion, #cancelRegion {
+    padding: 10px 20px;
+    margin: 5px;
+    height: 50px;
+    width: 110px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    background-color: #1711b3;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.confirm, .cancel{
+    padding: 5px 10px;
+    margin: 5px;
+    height: 30px;
+    width: 70px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    background-color: #1711b3;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cancelGoal, #cancelMobile, #cancelRegion, .cancel {
+    background-color: #fb2137;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Add some space between form groups */
+}
+
+.form-group label {
+    display: block; /* Make the label take up the full width */
+    margin-bottom: 5px; /* Add some space below the label */
+    font-weight: bold; /* Optional: Make the label text bold */
+}
+
+.form-group input, select {
+    height: 40px;
+    width: 100%; /* Make the input box take up the full width */
+    padding: 8px; /* Add some padding inside the input box */
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
+    border: 1px solid #ccc; /* Optional: Add a border to the input */
+    border-radius: 4px; /* Optional: Round the corners of the input box */
+}

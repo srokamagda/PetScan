@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <link rel="stylesheet" href="CSS/Navigation.css">
+    <link href="CSS/Add.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main-content">
+    
+    <div id="editProfileSection" class="settings-card">
+        <i class="fa-solid fa-arrow-left" id = "returnBack" onclick="goBack()"></i>
+
+        <div class="outter-main">
+        <div class="topInfo">
+            <img src="Images/Sirius.png" alt="" class = "pet-pic" id = "pet-pic-sub">
+            <h2 class = "pet-name" style = "color:white;">Edit Photo <i class="fa-solid fa-pencil" style = "font-size: 15px; margin-left: 5px;"></i></h2>
+        </div>
+
+        
+        <div class="main" style = "position:relative;">
+         
+        <br>
+        <div class="settings-item toggle-switch" id = "editInfo" style = "margin-top:0; padding-top:0px;">
+            
+            <div class = "start">
+            <div class="form-group" style = "width: 160px;">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter name">
+            </div>
+
+            <div class="form-group" id="specieCategories">
+                <label for="breed">Breed</label> 
+                <div class="selection">
+                    <select id="breed" name="species" class="species"> 
+                        <optgroup label="Dog"> 
+                            <option value="Labrador">Labrador</option> 
+                            <option value="Pit Bull">Pit Bull</option> 
+                            <option value="Great Pyrenese">Great Pyrenese</option> 
+                            <option value="Golden Retriever">Golden Retriever</option> 
+                            <option value="German Shepard">German Shepard</option> 
+                        </optgroup>
+                    </select> 
+                </div>
+            </div>
+
+
+            
+        </div>
+
+        <div class = "animal">
+
+            <div class="form-group" style = "width: 140px;"> 
+                <label for="Birthday">Birthday</label> 
+                <input type="date" id="Birthday" class="date-input" placeholder="Enter Birthday">
+            </div>
+
+            <div class="form-group" id="specieCategories">
+                <label for="species">Species</label> 
+                <div class="selection">
+                    <select id="species" name="species" class="species"> 
+                        <optgroup label="Pets"> 
+                            <option value="Dog">Dog</option> 
+                            <option value="Cat">Cat</option> 
+                            <option value="Fish">Fish</option> 
+                            <option value="Bird">Bird</option> 
+                            <option value="Rabbit">Rabbit</option>
+                            <option value="Snake">Snake</option>
+                            <option value="Lizard">Lizard</option>    
+                        </optgroup>
+                        <optgroup label="Farm Animals"> 
+                            <option value="Cow">Cow</option> 
+                            <option value="Sheep">Sheep</option> 
+                            <option value="Goat">Goat</option>  
+                        </optgroup>
+                        <optgroup label="Exotic Pets"> 
+                            <option value="Ferret">Ferret</option> 
+                            <option value="Hedgehog">Hedgehog</option> 
+                            <option value="Chinchilla">Chinchilla</option> 
+                        </optgroup>
+                    </select> 
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+            
+            <div id = "measurements" class = "measurements">
+    
+            <div class="form-group" id = "weights">
+                <label for="weightInput">Weight</label>
+                <input type="number" style = "width: 75px;" id="weightInput" placeholder="" style = "margin-top: 10px;" >
+            
+                <select id="unit" name="unit" class="unit" style = "width: 60px;"> 
+                    <option value="kg">Kg</option> 
+                    <option value="Ibs">Ibs</option>   
+                </select> 
+            </div>
+
+            <div class="form-group" id = "heights">
+                <label for="heightInput">Height</label>
+                <input type="number" style = "width: 75px;" id="heightInput" placeholder="" style = "margin-top: 10px;" >
+            
+                <select id="measure" name="measure" class="measure" style = "width: 60px;"> 
+                    <option value="cm">cm</option> 
+                    <option value="in">in</option>   
+                </select> 
+            </div>
+            </div>
+
+           
+
+
+            </div>
+
+
+            <br>
+            <button class = "edit" id = "saveProfile" style = "width: 200px;"> Save Profile </button>
+            <br><br>
+                </div>
+            </div><br><br>
+         </div>
+    </div>
+
+    <div class="maint-content">
+
+        <div class="loading-screen" id="loadingScreen">
+            <div class="logo">
+                <img src="Images/Logo.png" alt="Pet Scan Logo" >
+                
+            </div>
+
+            <div class = "group">
+                <h2 style = "margin-bottom:20px;">Pet Scan</h2>
+            <p>Creating Pet Profile</p>
+            <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+     
+
+        
+    </div>
+</div>
+    
+
+
+    
+
+    <script src = "JS/Add.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { 
+            const petId = getQueryParam('id'); 
+            if (petId) { 
+                localStorage.setItem('currentPetId', petId); 
+            } 
+        }); 
+        
+        function getQueryParam(name) { 
+            const urlParams = new URLSearchParams(window.location.search); 
+            return urlParams.get(name); 
+        }
+
+        function showEditProfile() {
+            document.getElementById('viewArea').classList.add('hidden');
+            document.getElementById('editProfileSection').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('editProfileSection').classList.add('hidden');
+            document.getElementById('viewArea').classList.remove('hidden');
+        }
+
+     
+       
+
+
+
+        
+      
+    </script>
+
+
+</body>
+</html>

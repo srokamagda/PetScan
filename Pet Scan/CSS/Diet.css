@@ -1,0 +1,424 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #006a4e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.diet-banner {
+    background-color: #5dd28e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+
+.meal-plan {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.meal-plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.meal-plan-header h2 {
+    font-size: 18px;
+}
+
+.meal-plan-header button {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.meal-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.meal-card h3 {
+    margin-top: 0;
+}
+
+.meal-card .meal-details {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.add-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.add-buttons button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-meal {
+    background-color: #ff5722;
+    color: white;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #006a4e;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.bottom-nav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    flex-grow: 1;
+    position: relative;
+}
+
+.bottom-nav i {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bottom-nav span {
+    display: block;
+    font-size: 10px;
+}
+
+.bottom-nav a:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background-color: #ffffff;
+}
+
+/* Modal Styling */
+#mealModal,
+#nutritionModal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    height: 70%;
+    width: 80%;
+    margin: 10px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content div {
+    margin-bottom: 20px;
+}
+
+.modal-content div input, .modal-content div select {
+    margin-bottom: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.modal-body input,
+.modal-body select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-body label {
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-footer button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.modal-footer .cancel-btn {
+    background-color: #ff5722;
+}
+
+.modal-footer .add-btn,
+.modal-footer .save-btn {
+    background-color: #28a745;
+}
+
+/* Specific styling for Edit Nutrition Modal */
+#nutritionModal .modal-body input,
+#nutritionModal .modal-body select {
+    font-size: 14px;
+}
+
+/* Ensure both modals (Add Meal & Edit Nutrition) have a consistent look */
+#mealModal .modal-footer .add-btn,
+#nutritionModal .modal-footer .save-btn {
+    background-color: #28a745;
+}
+
+#mealModal .modal-footer .cancel-btn,
+#nutritionModal .modal-footer .cancel-btn {
+    background-color: #ff5722;
+}
+
+/* Edit Nutrition Button */
+.edit-btn {
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 14px; 
+    border: none; 
+    border-radius: 5px; 
+    margin-top: 15px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.edit-btn:hover {
+    background-color: #0056b3; 
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545; 
+    color: white; 
+    padding: 10px 20px;  
+    font-size: 14px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 15px; 
+    transition: background-color 0.3s ease; 
+}
+
+.delete-btn:hover {
+    background-color: #c82333; 
+}
+
+/* Style the date button */
+.date-button {
+    background-color: #f9c74f; 
+    color: white; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 12px; 
+    font-size: 14px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.date-button:hover {
+    background-color: #fcbf49; 
+}
+
+/* Meal Header Styling */
+.meal-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px; 
+}
+
+/* Checkbox Styling */
+.meal-checkbox {
+    transform: scale(1.2); 
+    cursor: pointer; 
+}
+
+
+/* Show nutrition button */
+
+.toggle-nutrition-btn {height: 30px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    /* font-weight: 600; */
+    box-shadow: 0px 0px 5px greenyellow;
+
+}
+
+.nutrition-details {
+    margin-left: 15px;
+}
+
+
+/* Calendar */
+.calendar-container {
+    margin: 20px auto;
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background-color: #555;
+}
+
+#dateRange {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.calendar-day-header {
+    font-weight: bold;
+    font-size: 12px;
+    color: #00796b;
+}
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0f7fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    height: 60px;
+    font-size: 14px;
+}
+
+.calendar-day .dot {
+    width: 8px;
+    height: 8px;
+    margin-top: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.calendar-day .dot.active {
+    background-color: #00796b; 
+}

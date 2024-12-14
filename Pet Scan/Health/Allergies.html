@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medications</title>
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <link rel="stylesheet" href="../CSS/Navigation.css">
+    <link rel="stylesheet" href="../CSS/Health.css">
+
+   
+</head>
+<body class = "allergies">
+    <!-- Main Content (Container) -->
+    <div class="main-content subpage allergies">
+        <i class="fa-solid fa-arrow-left" id = "returnBack"></i>
+        
+            
+        <!-- Diet Button -->
+        <div class="health-subpage-title"> 
+            <i class="fa-solid fa-hand-dots"></i>
+            <h3>Allergies</h3>
+        </div>
+
+        
+
+        <!-- Meal Plan Section -->
+        <div class="health-plan">
+            
+          
+            <div class="health-subpage-box">
+
+                <b><h2 class = "title"> Allergies</h2></b>
+
+                <div class="allergyList" id = "allergyList"></div>
+
+                <div class="add-item">
+                    <button id="openAllergyPopup">Add Allergy + </button> <!-- Medication Popup Button -->
+                </div>
+            </div>
+
+
+           
+               
+    
+        
+
+        <!-- Modal Structure -->
+        <div id="allergyModal" class="modal">
+            <div class="modal-content allergy" style = "height: 80%;">
+                <div class="modal-header">
+                    <h2>Add Allergy</h2>
+                    <span class="close" id="closeAllergyModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                    <label for="allergyName">Allergy:</label>
+                    <input type="text" id="allergyName" placeholder="Enter allergy">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="levelAllergy">Allergy Category:</label> 
+                           <select id="levelAllergy" name="levelAllergy"> 
+                               <option value="Mild">Mild</option> 
+                               <option value="Moderate">Moderate </option> 
+                               <option value="Severe">Severe</option> 
+                           </select> 
+                   </div>
+
+                   
+
+                    </div>
+
+                <div class="modal-footer">
+                    <button id="cancelAllergy">Cancel</button>
+                    <button id="addAllergy">Add allergy</button>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+
+            
+        </div>
+
+    
+    </div>
+
+   
+
+    <!-- JavaScript -->
+    <script src = "../JS/Health_allergies.js">
+       
+    </script>
+</body>
+</html>

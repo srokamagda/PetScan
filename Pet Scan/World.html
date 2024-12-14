@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mala Location</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="CSS/World.css" rel="stylesheet">
+    <link href="CSS/Navigation.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <img src="" id = "pet-pic" alt="Profile Picture" onclick="window.location.href='Profile.html'">
+            <h1 id = "pet-name" style="text-align: left; margin-left: 60px;"></h1>
+            <div class="menu-btn" id="menu-btn">&#9776;</div>
+            <div class="overlay" id="overlay">
+                <div class="logo_div">
+                    <a href="Home.html"><img src="Images/Logo.png" href="Home.html" class = "logo" alt="Company Logo"></a>
+                </div>
+
+                <span class = "sidebar_divider"></span>
+            <div>
+                <a href="Home.html"><i class="fa-solid fa-house"></i></a>
+                <a href="Account.html"><i class="fa-solid fa-user"></i></a>
+                <a href="Settings.html"><i class="fa-solid fa-gear"></i></a>
+                
+                
+                <nav class="menu">
+                   
+                    
+                    <ul>
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="Account.html"> My Account</a></li>
+                        <li><a href="Settings.html">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div id="map" class="map-container"></div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="Diet.html"><i class="fas fa-utensils"></i><span>Food</span></a>
+            <a href="Fitness.html"><i class="fas fa-walking"></i><span>Exercise</span></a>
+            <a href="Health.html"><i class="fas fa-heartbeat"></i><span>Health</span></a>
+            <a href="World.html"><i class="fas fa-globe"></i><span>World</span></a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src = "JS/Navigation.js"></script>
+    
+    
+    <script>
+         document.addEventListener('DOMContentLoaded', function() { 
+            const petId = getQueryParam('id'); 
+            if (petId) { 
+                localStorage.setItem('currentPetId', petId); 
+            } 
+        }); 
+        
+        function getQueryParam(name) { 
+            const urlParams = new URLSearchParams(window.location.search); 
+            return urlParams.get(name); 
+        }
+
+     
+            document.addEventListener('DOMContentLoaded', function() { 
+                var petId = localStorage.getItem('currentPetId'); // Retrieve pets from local storage 
+                var pets = JSON.parse(localStorage.getItem('pets')) || []; // Find the specific pet 
+                var pet = pets.find(p => p.id == petId); 
+
+                if (pet) { // Add the medication to the pet's medications array 
+                const profileImage = document.getElementById('pet-pic'); 
+                profileImage.src = pet.image;
+                var petName = document.getElementById("pet-name");
+                petName.textContent = pet.name;
+                
+         } else { 
+            console.error('Pet not found for id:', petId); 
+        }});
+    </script>
+    
+    
+    
+    
+    <script>
+
+        
+        // Initialize the map
+        const map = L.map('map').setView([53.2707, -9.0568], 14); 
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        
+
+        document.addEventListener('DOMContentLoaded', function() { 
+                var petId = localStorage.getItem('currentPetId'); // Retrieve pets from local storage 
+                var pets = JSON.parse(localStorage.getItem('pets')) || []; // Find the specific pet 
+                var pet = pets.find(p => p.id == petId); 
+
+                if (pet) { // Add the medication to the pet's medications array 
+                     // Create a custom icon
+                    const customIcon = L.divIcon({
+                    className: 'custom-icon',
+                    html: `<img src='${pet.image}' alt='Marker' class='circle-marker' style='width:50px;height:50px;'>`, 
+                    iconSize: [50, 50], 
+                    iconAnchor: [25, 50], 
+                    popupAnchor: [0, -50] 
+                });
+
+                // Add a marker with the custom divIcon
+                const marker = L.marker([53.2707, -9.0568], { icon: customIcon }).addTo(map);
+                marker.bindPopup(pet.name + "'s Location").openPopup();
+
+                
+         } else { 
+            console.error('Pet not found for id:', petId); 
+        }});
+       
+
+
+    </script>
+</body>
+</html>

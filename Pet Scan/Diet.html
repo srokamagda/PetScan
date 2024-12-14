@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mala's Diet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/Diet.css">
+    <link rel="stylesheet" href="CSS/Navigation.css">
+
+
+    
+</head>
+<body>
+    <div class="main-content">
+        <div class="sidebar-content">
+            <!-- Header Section -->
+            <div class="header">
+                <img src="" id = "pet-pic" alt="Profile Picture"  onclick="window.location.href='Profile.html'">
+                <h1 id = "pet-name" style="text-align: left; margin-left: 60px;"></h1>
+                <div class="menu-btn" id="menu-btn">&#9776;</div>
+                <div class="overlay" id="overlay">
+                    <div class="logo_div">
+                        <a href="Home.html"><img src="Images/Logo.png" href="Home.html" class = "logo" alt="Company Logo"></a>
+                    </div>
+
+                    <span class = "sidebar_divider"></span>
+                <div>
+                    <a href="Home.html"><i class="fa-solid fa-house"></i></a>
+                    <a href="Account.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="Settings.html"><i class="fa-solid fa-gear"></i></a>
+                    
+                    
+                    <nav class="menu">
+                       
+                        
+                        <ul>
+                            <li><a href="Home.html">Home</a></li>
+                            <li><a href="Account.html"> My Account</a></li>
+                            <li><a href="Settings.html">Settings</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+    
+            <!-- Rest of your content -->
+    
+        </div>
+
+        <div class="diet-banner"  style = "border-top: 3px solid white;"><h1>Diet</h1></div>
+
+        <div class="meal-plan">
+            <div class="meal-plan-header">
+                <h2>Meal Plan</h2> <br><br>
+                <button id="currentDate" class="date-button"></button>
+            </div>
+
+            <div id="mealList"></div>
+
+            <div class="add-buttons">
+                <button class="add-meal" id="openMealModal">Add Meal +</button>
+            </div>
+        </div>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevWeek">&lt;</button>
+                <span id="dateRange">Dec 09 - Dec 15</span>
+                <button id="nextWeek">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Day boxes will be generated here -->
+            </div>
+        </div>
+        
+        
+        
+        <div class="bottom-nav">
+            <a href="Diet.html"><i class="fas fa-utensils"></i><span>Food</span></a>
+            <a href="Fitness.html"><i class="fas fa-walking"></i><span>Exercise</span></a>
+            <a href="Health.html"><i class="fas fa-heartbeat"></i><span>Health</span></a>
+            <a href="World.html"><i class="fas fa-globe"></i><span>World</span></a>
+        </div>
+    
+
+    <!-- Add Meal -->
+    <div id="mealModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Meal</h2>
+            </div>
+            <div class="modal-body">
+                <label for="mealType">Meal Type</label>
+                <select id="mealType">
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                </select>
+
+                <label for="foodName">Food Name</label>
+                <input type="text" id="foodName" placeholder="Food Name">
+
+                <label for="foodQuantity">Quantity</label>
+                <input type="number" id="foodQuantity" placeholder="Quantity">
+
+                <label for="foodUnit">Unit</label>
+                <input type="text" id="foodUnit" placeholder="Unit (e.g., grams, pieces)">
+
+                <label for="foodTime">Time</label>
+                <select id="foodTime" name="foodTime">
+                    <option value="08:00">08:00 AM</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">01:00 PM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="17:00">05:00 PM</option>
+                    <option value="18:00">06:00 PM</option>
+                    <option value="19:00">07:00 PM</option>
+                    <option value="20:00">08:00 PM</option>
+                    <option value="21:00">09:00 PM</option>
+                </select>
+            </div>
+
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancelMeal">Cancel</button>
+                <button class="add-btn" id="addMeal">Add Meal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Nutrition -->
+    <div id="nutritionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Nutrition</h2>
+            </div>
+            <div class="modal-body">
+                <label for="calories">Calories</label>
+                <input type="number" id="calories" placeholder="Calories">
+
+                <label for="protein">Protein</label>
+                <input type="number" id="protein" placeholder="Protein (g)">
+
+                <label for="fat">Fat</label>
+                <input type="number" id="fat" placeholder="Fat (g)">
+
+                <label for="carbs">Carbs</label>
+                <input type="number" id="carbs" placeholder="Carbs (g)">
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancelNutrition">Cancel</button>
+                <button class="save-btn" id="addNutrition">Save Nutrition</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src = "JS/Navigation.js"></script> 
+    <script src = "JS/Diet.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { 
+            const petId = getQueryParam('id'); 
+            if (petId) { 
+                localStorage.setItem('currentPetId', petId); 
+            } 
+        }); 
+        
+        function getQueryParam(name) { 
+            const urlParams = new URLSearchParams(window.location.search); 
+            return urlParams.get(name); 
+        }
+
+     
+        document.addEventListener('DOMContentLoaded', function() { 
+                var petId = localStorage.getItem('currentPetId'); // Retrieve pets from local storage 
+                var pets = JSON.parse(localStorage.getItem('pets')) || []; // Find the specific pet 
+                var pet = pets.find(p => p.id == petId); 
+
+                if (pet) { // Add the medication to the pet's medications array 
+                const profileImage = document.getElementById('pet-pic'); 
+                profileImage.src = pet.image;
+                var petName = document.getElementById("pet-name");
+                petName.textContent = pet.name;
+                
+         } else { 
+            console.error('Pet not found for id:', petId); 
+        }});
+
+        document.addEventListener('pet-pic', function() {
+
+        });
+
+         // Display the current date in the date button
+document.addEventListener("DOMContentLoaded", () => {
+    // Get current date in format: Month Day, Year 
+    const currentDate = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+    // Set the current date to the button
+    document.getElementById('currentDate').textContent = formattedDate;
+    });
+
+        
+
+       
+        const calendarGrid = document.getElementById('calendarGrid');
+const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+let activeDays = {}; // Track active days with meals
+
+// Function to generate calendar
+function generateCalendar(startDate) {
+    calendarGrid.innerHTML = ''; // Clear existing grid
+
+    // Add day headers (e.g., S, M, T...)
+    daysOfWeek.forEach(day => {
+        const header = document.createElement('div');
+        header.className = 'calendar-day-header';
+        header.textContent = day;
+        calendarGrid.appendChild(header);
+    });
+
+    const weekStart = new Date(startDate); // Start of the week
+    const weekEnd = new Date(startDate);
+    weekEnd.setDate(weekEnd.getDate() + 6); // End of the week (7 days later)
+
+    // Update the date range in the calendar header
+    const options = { month: 'short', day: 'numeric' };
+    document.getElementById('dateRange').textContent = `${weekStart.toLocaleDateString('en-US', options)} - ${weekEnd.toLocaleDateString('en-US', options)}`;
+
+    // Populate day boxes
+    for (let i = 0; i < 7; i++) {
+        const dayBox = document.createElement('div');
+        dayBox.className = 'calendar-day';
+
+        const dateString = startDate.toDateString();
+
+        // Add dots for active meals
+        if (activeDays[dateString]) {
+            activeDays[dateString].forEach(() => {
+                const dot = document.createElement('div');
+                dot.className = 'dot active'; // Add class for styling active dots
+                dayBox.appendChild(dot);
+            });
+        }
+
+        // Add day number
+        const dayNumber = document.createElement('div');
+        dayNumber.textContent = startDate.getDate();
+        dayBox.appendChild(dayNumber);
+
+        // Advance to the next day
+        startDate.setDate(startDate.getDate() + 1);
+
+        calendarGrid.appendChild(dayBox);
+    }
+}
+
+// Add meal functionality updates calendar
+document.getElementById('addMeal').addEventListener('click', () => {
+    const today = new Date();
+    const todayString = today.toDateString();
+
+    // Mark today as active in the calendar
+    if (!activeDays[todayString]) {
+        activeDays[todayString] = [];
+    }
+    activeDays[todayString].push({}); // Add a placeholder object to represent a meal
+    generateCalendar(new Date(today.setDate(today.getDate() - today.getDay()))); // Refresh grid
+});
+
+// Delete meal functionality removes the dot
+mealList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-btn')) {
+        const today = new Date();
+        const todayString = today.toDateString();
+
+        // Remove active status if no meals remain
+        if (!mealList.querySelector('.meal-card')) {
+            delete activeDays[todayString];
+            generateCalendar(new Date(today.setDate(today.getDate() - today.getDay()))); // Refresh grid
+        }
+    }
+});
+
+// Initialize calendar with current week
+document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date();
+    let weekStart = new Date(today.setDate(today.getDate() - today.getDay())); // Start of the week
+
+    // Initialize calendar with the current week
+    generateCalendar(new Date(weekStart));
+
+    // Previous Week Button
+    document.getElementById('prevWeek').addEventListener('click', () => {
+        weekStart.setDate(weekStart.getDate() - 7); // Move back by 7 days
+        generateCalendar(new Date(weekStart));
+    });
+
+    // Next Week Button
+    document.getElementById('nextWeek').addEventListener('click', () => {
+        weekStart.setDate(weekStart.getDate() + 7); // Move forward by 7 days
+        generateCalendar(new Date(weekStart));
+    });
+});
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main-content {
+    width: 100%;
+    max-width: 400px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 50px;
+    background: linear-gradient(to bottom, #333, #666);
+}
+
+.flex {
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+}
+
+.generalSettings, .logout {
+    background: #1a1a1a; /* Dark gray background */
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    background-color: white;
+    color: black;
+    position: relative;
+    width: 100%;
+}
+
+#permissionsSection, #aboutContentSection, #aboutSection, #notificationSection {
+    margin-top: 60px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 80%;
+}
+
+.settings-card {
+    margin-top: 60px;
+}
+
+.section-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#returnBack {
+    color:white; 
+    font-size: 3em;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.title {
+    position: absolute;
+    top: 35px;
+    left: 100px;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    margin: 10px 0;
+    background: #ffffff; /* Dark gray background */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.fa-bell, .fa-file-signature, .fa-circle-info, .fa-trash-can, .fa-arrow-right-from-bracket {
+    font-size: 1.3em;
+    position:absolute;
+    left: 15px;
+    top: 70px;
+}
+
+.fa-file-signature {
+    top: 120px;
+}
+
+.fa-circle-info {
+    top: 173px;
+}
+
+.fa-arrow-right-from-bracket {
+    top: 117px;
+}
+
+
+.settings-item .item-text {
+    font-size: 16px;
+}
+
+.settings-item .icon {
+    font-size: 16px;
+}
+
+.mustard {
+    color: #FFBC14;
+}
+
+.yellow {
+    color:#F5B966;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle.active {
+    background: #f44336; /* Bright red for active state */
+}
+
+.toggle.active::before {
+    transform: translateX(20px);
+}
+
+.back-btn {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-btn span {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Custom Styles for Login Section */
+.login-section .settings-item {
+    background-color: #ffcccc; /* Light red background */
+    color: #cc0000; /* Red text */
+}
+
+.login-section .settings-item:hover {
+    background-color: #ffb3b3; /* Darker red hover */
+}
+
+.login-section .settings-item:last-child {
+    background-color: #f44336; /* Bright red */
+    color: white;
+    text-align: center;
+}
+
+.login-section .settings-item:last-child:hover {
+    background-color: #d32f2f; /* Darker red hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: black; /* Make modal text black */
+    font-size: 16px; /* Reduce the text size */
+}
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.modal-buttons button.confirm {
+    background-color: red;
+    color: white;
+}
+.modal-buttons button.cancel {
+    background-color: grey;
+    color: white;
+}
+
+/* About Content Page */
+.about-content {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.about-content h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: black;
+}
